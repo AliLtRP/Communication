@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plot
 
+# square sine
 
 def squ_sin(amp, f):
     # array of values between -2, 2
@@ -15,7 +16,11 @@ def squ_sin(amp, f):
     # calc the convolution values 
     x = np.convolve(sin , f1(n))
 
-    return x
+    plot.plot(x)
+    return 
+
+
+# square cos
 
 def squ_cos(amp, f):
     # array of values between -2, 2
@@ -30,8 +35,27 @@ def squ_cos(amp, f):
     # calc the convolution values
     x = np.convolve(cos , f1(n))
 
-    return x
+    plot.plot(x)
+    return 
 #   done/2
+
+#  two square waves
+
+def squ2(amp, f):
+    # array of values between -2, 2
+    n = np.linspace(-2, 2, 100)
+    
+    # rectangular
+    f1 = lambda t: (abs(t)<0.5).astype(float)
+    
+    # calc the convolution values
+    x = np.convolve(f1(n), f1(n))
+
+    plot.plot(x)
+    
+    return 
+
+# triangular sine
 
 def trig_exp(f, T, t0):
     # t0 convolution at time ?
